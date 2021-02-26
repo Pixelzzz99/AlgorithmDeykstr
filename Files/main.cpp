@@ -67,7 +67,7 @@ void ExcelTest()
             RandomTasks *task2 = new RandomTasks(i, 2);
             Table << i << ";";
             std::cout << i << std::endl;
-            GreedyVersion *solve2 = new GreedyVersion(task1);
+            GreedyVersion *solve2 = new GreedyVersion(task2);
 
             unsigned int time_clock2 = clock();
             std::vector<long long> deykstr2 = solve2->solve();
@@ -77,9 +77,9 @@ void ExcelTest()
             std::vector<long long> deykstr1;
             double time1;
             int memory1;
-            if (i < 50000)
+            if (i < 10000)
             {
-                FirstVersion *solve1 = new FirstVersion(task1);
+                FirstVersion *solve1 = new FirstVersion(task2);
                 unsigned int time_clock1 = clock();
                 deykstr1 = solve1->solve();
                 time1 = (double)(clock() - time_clock1) / CLOCKS_PER_SEC;
@@ -95,7 +95,8 @@ void ExcelTest()
             std::string compare = deykstr1 == deykstr2 ? "True" : "False";
 
             std::cout << "Time1: " << time1 << "\t"
-                      << "Time2: " << time2 << std::endl;
+                      << "Time2: " << time2
+                      << "\t" << memory1 << "\t" << memory2 << std::endl;
             Table << time2 << ";" << compare << ";" << memory1 << ";" << memory2 << std::endl;
             delete solve2;
             delete task2;

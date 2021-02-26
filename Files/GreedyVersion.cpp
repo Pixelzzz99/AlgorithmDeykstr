@@ -35,7 +35,7 @@ void GreedyVersion::setGraph(std::vector<std::pair<std::pair<int, int>, int>> gr
     }
     for(int i = 0; i< getCountOfEdges_M(); i++)
     {
-        _memory += this->graph[i].size() * sizeof(int);
+        _memory += (this->graph[i].size() * sizeof(int));
             
     }
     _memory += sizeof(graph);

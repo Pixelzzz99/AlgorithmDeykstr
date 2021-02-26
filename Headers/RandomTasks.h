@@ -8,9 +8,9 @@
 class RandomTasks
 {
 private:
-    int n;
-    int m;
-    int s;
+    int n_;
+    int m_;
+    int s_;
     std::vector<std::pair<std::pair<int, int>, int>> graph;
     
     std::map<std::pair <int, int>, bool> mp;

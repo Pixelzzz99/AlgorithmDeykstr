@@ -12,7 +12,7 @@ private:
     std::vector<std::vector<int>> graph;
     void resizeVectorGraph(int size);
     void setGraph(std::vector<std::pair<std::pair<int, int>, int>> graph);
-
+    int _memory = 0;
 public:
     FirstVersion(RandomTasks*);
     FirstVersion(int n, int m, int s, std::vector<std::pair<std::pair<int, int>, int>> graph);

@@ -3,16 +3,16 @@
 RandomTasks::RandomTasks()
 {
     srand(time(nullptr));
-    n = Randomizator(1, 7);
+    n_ = Randomizator(1, 7);
     generateGraph();
-    s = Randomizator(1, n);
+    s_ = Randomizator(1, n_);
 }
 
 RandomTasks::RandomTasks(int n, int s)
 {
-    this->n = n;
+    this->n_ = n;
     generateGraph();
-    this->s = s;
+    this->s_ = s;
 }
 
 int RandomTasks::Randomizator(int min, int max)
@@ -25,7 +25,7 @@ void RandomTasks::generateGraph()
 {
     std::vector<int> v = {1};
     int id_v = 2;
-    int count_d = n - 1;
+    int count_d = n_ - 1;
     while (count_d > 0)
     {
         int position = Randomizator(0, v.size() - 1);
@@ -39,7 +39,7 @@ void RandomTasks::generateGraph()
         count_d--;
     }
 
-    m = n - 1;
+    m_ = n_ - 1;
     int it = Randomizator(0, 5);
     while (it--)
     {
@@ -53,23 +53,23 @@ void RandomTasks::generateGraph()
         int len = Randomizator(1, 10);
         mp[{v1, v2}] = mp[{v2, v1}] = 1;
         graph.push_back({{v1, v2}, len});
-        m++;
+        m_++;
     }
 }
 
 int RandomTasks::get_N()
 {
-    return n;
+    return n_;
 }
 
 int RandomTasks::get_M()
 {
-    return m;
+    return m_;
 }
 
 int RandomTasks::get_S()
 {
-    return s;
+    return s_;
 }
 
 std::vector<std::pair<std::pair<int, int>, int>> RandomTasks::get_Graph()

@@ -7,8 +7,7 @@ private:
     int countOfVertex_N;
     int countOfEdges_M;
     int startVertex_S;
-    protected:
-    int _memory = 0;
+    
 public:
     const long long INFINITY = 1e18;
     
