@@ -8,6 +8,13 @@ RandomTasks::RandomTasks()
     s = Randomizator(1, n);
 }
 
+RandomTasks::RandomTasks(int n, int s)
+{
+    this->n = n;
+    generateGraph();
+    this->s = s;
+}
+
 int RandomTasks::Randomizator(int min, int max)
 {
     static const double fraction = 1.0 / (static_cast<double>(RAND_MAX) + 1.0);
@@ -38,9 +45,11 @@ void RandomTasks::generateGraph()
     {
         int pos1 = Randomizator(0, v.size() - 1);
         int pos2 = Randomizator(0, v.size() - 1);
-        if (pos1 == pos2) continue;
+        if (pos1 == pos2)
+            continue;
         int v1 = v[pos1], v2 = v[pos2];
-        if (mp.count({v1, v2})) continue;
+        if (mp.count({v1, v2}))
+            continue;
         int len = Randomizator(1, 10);
         mp[{v1, v2}] = mp[{v2, v1}] = 1;
         graph.push_back({{v1, v2}, len});

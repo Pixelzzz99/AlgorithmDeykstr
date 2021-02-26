@@ -5,17 +5,18 @@
 #include <set>
 #include <utility>
 #include <iostream>
-class GreedyVersion : public AlgorithmDeykstr
+
+class FirstVersion : public AlgorithmDeykstr
 {
 private:
-    std::vector<std::vector<Edge>> graph;
+    std::vector<std::vector<int>> graph;
     void resizeVectorGraph(int size);
     void setGraph(std::vector<std::pair<std::pair<int, int>, int>> graph);
 
 public:
-    GreedyVersion(RandomTasks*);
-    GreedyVersion(int n, int m, int s, std::vector<std::pair<std::pair<int, int>, int>> graph);
-    ~GreedyVersion(){};
+    FirstVersion(RandomTasks*);
+    FirstVersion(int n, int m, int s, std::vector<std::pair<std::pair<int, int>, int>> graph);
+    ~FirstVersion(){};
     
     int getMem();
     std::vector<long long> solve() override;

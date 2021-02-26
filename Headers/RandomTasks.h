@@ -21,6 +21,8 @@ public:
     int get_M();
     int get_S();
     std::vector<std::pair<std::pair<int, int>, int>> get_Graph();
+    
     RandomTasks();
-    ~RandomTasks() {}
+    RandomTasks(int, int);
+    ~RandomTasks()=default;
 };

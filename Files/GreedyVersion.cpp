@@ -1,12 +1,12 @@
 #include "GreedyVersion.h"
 
-GreedyVersion::GreedyVersion(RandomTasks Task)
+GreedyVersion::GreedyVersion(RandomTasks* Task)
 {
-    setCountOfVertex_N(Task.get_N());
-    setCountOfEdges_M(Task.get_M());
-    setStartVertex_S(Task.get_S());
+    setCountOfVertex_N(Task->get_N());
+    setCountOfEdges_M(Task->get_M());
+    setStartVertex_S(Task->get_S());
     resizeVectorGraph(getCountOfVertex_N());
-    setGraph(Task.get_Graph());
+    setGraph(Task->get_Graph());
 }
 
 GreedyVersion::GreedyVersion(int n, int m, int s, std::vector<std::pair<std::pair<int, int>, int>> graph)
@@ -33,7 +33,19 @@ void GreedyVersion::setGraph(std::vector<std::pair<std::pair<int, int>, int>> gr
         this->graph[v].push_back({u, length});
         this->graph[u].push_back({v, length});
     }
+    for(int i = 0; i< getCountOfEdges_M(); i++)
+    {
+        _memory += this->graph[i].size() * sizeof(int);
+            
+    }
+    _memory += sizeof(graph);
 }
+
+int GreedyVersion::getMem()
+{
+    return _memory;
+}
+
 
 std::vector<long long> GreedyVersion::solve()
 {
